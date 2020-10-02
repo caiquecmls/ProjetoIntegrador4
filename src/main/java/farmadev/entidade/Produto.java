@@ -11,23 +11,42 @@ package farmadev.entidade;
  */
 public class Produto {
     
+    private String nome;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
     private String descricao;
     private int quantidade;
     private double valor;
     private String categoria;
     private int id;
-    private String pergunta;
-    private String imagem;
+     private String desconto;
+      private String promocao;
+      private String imagem;
+
+    public String getDesconto() {
+        return desconto;
+    }
+
+    public void setDesconto(String desconto) {
+        this.desconto = desconto;
+    }
+
+    public String getPromocao() {
+        return promocao;
+    }
+
+    public void setPromocao(String promocao) {
+        this.promocao = promocao;
+    }
+    
+
     private boolean status;
-
-
-    public String getPergunta() {
-        return pergunta;
-    }
-
-    public void setPergunta(String pergunta) {
-        this.pergunta = pergunta;
-    }
 
     public boolean isStatus() {
         return status;
@@ -37,33 +56,52 @@ public class Produto {
         this.status = status;
     }
 
-    public Produto(String descricao, int quantidade, double valor, String categoria,String pergunta, String imagem) {
+    public Produto(String nome , String descricao, int quantidade, double valor, String categoria,String desconto, String promocao) {
         
+        this.nome=nome;
         this.descricao = descricao;
         this.quantidade = quantidade;
         this.valor = valor;
         this.categoria = categoria;
-        this.pergunta = pergunta;
-        this.imagem = imagem;
+        this.desconto=desconto;
+        this.promocao=promocao;
     }
-    public Produto(int id , String descricao, int quantidade, double valor, String categoria) {
-        
-        this.id=id;
-        this.descricao = descricao;
-        this.quantidade = quantidade;
-        this.valor = valor;
-        this.categoria = categoria;
-    }
-        public Produto(int id , String descricao, int quantidade, double valor, String categoria, String pergunta, String imagem) {
+    public Produto(int id ,String nome,  String descricao, int quantidade, double valor, String categoria, String imagem) {
         
         this.id=id;
+        this.nome=nome;
         this.descricao = descricao;
         this.quantidade = quantidade;
         this.valor = valor;
         this.categoria = categoria;
-        this.pergunta=pergunta;
-        this.imagem = imagem;
+        this.imagem=imagem;
     }
+        public Produto(int id ,String nome, String descricao, int quantidade, double valor, String categoria,String desconto, String promocao, String imagem) {
+        
+        this.id=id;
+        this.nome=nome;
+        this.descricao = descricao;
+        this.quantidade = quantidade;
+        this.valor = valor;
+        this.categoria = categoria;
+        this.desconto=desconto;
+        this.promocao=promocao;
+    this.imagem=imagem;
+    }
+        
+                public Produto(int id ,String nome, String descricao, int quantidade, double valor, String categoria,String desconto, String promocao) {
+        
+        this.id=id;
+        this.nome=nome;
+        this.descricao = descricao;
+        this.quantidade = quantidade;
+        this.valor = valor;
+        this.categoria = categoria;
+        this.desconto=desconto;
+        this.promocao=promocao;
+  
+    }
+                
     public Produto() {
     }
 

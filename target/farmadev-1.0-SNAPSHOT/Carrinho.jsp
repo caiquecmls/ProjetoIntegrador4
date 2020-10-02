@@ -4,58 +4,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
         <title>'FarmaSis</title>
         <style>
-
             a{
                 font-family: verdana;
                 font-size:18px;
                 color:#5298C7;
                 text-decoration: none;	
             }
+
             div.box {
                 border:5px solid #999;
                 width: 150px;
                 display: inline-block;
             }
-
-
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-            }
-
-
-            li {
-
-                float: left;
-            }
-
-
-
-            div {
-                margin-top: 1px;
-                margin-right: 1px;
-                margin-bottom: 10px;
-                margin-left: 10px;
-            }
-
-
-            .margintop{
-                margin-top:5px;
-            }
-
-
         </style> 
 
         <script type="text/javascript"></script>
     </head>
-
 
     <body>
 
@@ -72,7 +41,7 @@
         <div class="jumbotron jumbotron-fluid p-1">
             <div class="container-fluid mr-5"> 
                 <center>
-                    <h2 class="display-5">Lista de produtos</h2>
+                    <h2 class="display-5">Carrinho</h2>
                 </center>
             </div>
         </div>
@@ -140,49 +109,59 @@
                     </td>
             </table></div>
 
+
         <div align="center">
-            <table class="table" width="%" >
-                <c:forEach var="c" items="${produtos}">  
-                    <div class="box">
-                        <center>${c.nome}<br></center>
+            <table class="table" width="10%" >
+                <thead class="table-dark" >
+                    <tr>  
+                        <th scope="col">Nome</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col" >Valor Unitario</th>
+                        <th scope="col"> Total</th>
+                        <th </th>
+                        <th </th>
+                        <th </th>
+                        <th </th>
+                        <th </th>
+
+                    </tr>
+                </thead>
+                <br>
+
+
+                <c:forEach var="c" items="${itens}">
+                    <tr>
+                        <td>${c.nome}</td>
+<!--                                <td>${c.quantidade} </td>-->
+                        <td> <input ${c.quantidade}</td></td>      
+                        <td>${c.valor}</td>
+                        <td>  </td>
+
+
+                        <td><input type="hidden" name="urlimagemBase64" id="urlimagemBase64"
+                                   ${c.imagem}</td>
+                    <div style="float: right; width: 45%;">
                         <img src="<c:out value="${c.imagem}"/>" width="140px" height="140px" 
                              style="min-height: 100px;" border="0" id="target" name="target"> 
-                        <center>Preço: ${c.valor}</center>
+                        <br />
+                    </div>   
 
-                        <form action="DeletarProduto">
-                            <input name="PRD_ID" type="hidden" size=1 value="${c.id}">                              
-                            <button class="btn btn-outline-danger" type="submit">deletar</button>  
-                        </form>                             
 
-                        <form action="EditarProduto">
-                            <input name="PRD_ID"  type="hidden"  value="${c.id}">                              
-                            <button class="btn btn-outline-warning" type="submit">Editar</button>
-                        </form>   
+                    </tr>
 
-                        <form action="DetalhesProdutos">
-                            <input name="PRD_ID"  type="hidden"  value="${c.id}">                              
-                            <button class="btn btn-outline-warning" type="submit">Detalhes</button>  
-                        </form>                                                      
-
-                        <form action="Carrinho">
-                            <input name="PRD_ID"  type="hidden"  value="${c.id}">                                     
-                            <button class="btn btn-outline-warning" type="submit">Comprar</button>  
-                        </form>   
-                        <br />  
-                    </div>
-
-                    <td>                       
-                        <input type="hidden" name="urlimagemBase64" id="urlimagemBase64"       
-                               ${c.imagem}</td>
-                    </td>
 
                 </c:forEach>
 
-
+                <tr></tr>
             </table>
 
             <param name="PRD_ID" value="${c.id}">
+            <a href="index.html">Início</a>
         </div>
-    </body>
+    </div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
 </html>
 
