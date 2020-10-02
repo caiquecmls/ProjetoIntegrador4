@@ -19,6 +19,10 @@
                       </div>
                       <input type="hidden" name="urlimagemBase64" id="urlimagemBase64" value="${c.imagem}" /> 
                       <div class="form-group col-md-5px">
+                          <label>nome</label>
+                          <input name="PRD_NOME"  value="${c.nome}">
+                      </div>
+                      <div class="form-group col-md-5px">
                           <label>descrição</label>
                           <input name="PRD_DESCRICAO"  value="${c.descricao}">
                       </div>
@@ -39,6 +43,14 @@
                               <option value="EQUIPAMENTOS">EQUIPAMENTOS</option>
                               <option value="SAUDE">SAUDE</option>
                           </select>
+                      </div>
+                      <div class="form-group col-md-auto">
+                          <label> Desconto </label>
+                          <input  value="${c.desconto}">
+                      </div>
+                      <div class="form-group col-md-auto">
+                          <label> Promocao </label>
+                          <input  value="${c.promocao}">
                       </div>
                       <div class="form-group col-md-5px">
                           <label>Pergunta:</label>
