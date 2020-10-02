@@ -21,46 +21,37 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author diego
  */
-@WebServlet(name = "ListarProdutos", urlPatterns = {"/ListarProdutos"})
-public class ListarProdutos extends HttpServlet {
+@WebServlet(name = "ListarProdutosSaude", urlPatterns = {"/ListarProdutosSaude"})
+public class ListarProdutosSaude extends HttpServlet {
 
-
-    public static List<Produto> item = Carrinho.getItens();
-    
-     public static List<Produto> getItem() {
-        return item;
-    }
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        
     }
 
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-                  response.setContentType("text/html;charset=UTF-8");
-        List<Produto> produtos = ProdutosDAO.listarProdutos("","");
-        request.setAttribute("produtos", produtos);       
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listarProdutos.jsp");
-        dispatcher.forward(request,response);
-        }
-        processRequest(request, response);
-    }
+          }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String Filtro = request.getParameter("Filtro");
-           List<Produto> produto = ProdutosDAO.listarProdutos(Filtro,"");
+                     List<Produto> produto = ProdutosDAO.listarProdutos("","SAUDE");
         request.setAttribute("produtos", produto); 
-        request.setAttribute("Buscar", Filtro);
+        
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listarProdutos.jsp");
          dispatcher.forward(request,response);  
         processRequest(request, response);
     }
 
+   
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
 
 }
