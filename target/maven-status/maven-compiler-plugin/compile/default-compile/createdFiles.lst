@@ -16,3 +16,4 @@ farmadev\servlet\ListarProdutosBeleza.class
 farmadev\entidade\ItensVenda.class
 farmadev\servlet\EditarProduto.class
 farmadev\servlet\ListarProdutos.class
+farmadev\servlet\ControllerImagem.class

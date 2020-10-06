@@ -44,7 +44,7 @@ public class ControllerImagem extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
           String id = request.getParameter("PRD_ID");
-                     List<Produto> produto = ProdutosDAO.BuscarProdutos(Integer.parseInt(id));// consulta o registro
+                     List<Produto> produto = (List<Produto>) ProdutosDAO.BuscarProdutos(Integer.parseInt(id));// consulta o registro
                     RequestDispatcher view = request.getRequestDispatcher("/VisualizarImg.jsp");
                     request.setAttribute("produto", produto);
                     view.forward(request, response);
